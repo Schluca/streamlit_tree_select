@@ -56,8 +56,8 @@ class TreeSelect extends StreamlitComponentBase {
       showExpandAll={showExpandAll}
       checked={this.state.checked}
       expanded={this.state.expanded}
-      onCheck={(checked) => { this.setState({ checked }); Streamlit.setComponentValue(this.state); this.state.changed = true; }}
-      onExpand={(expanded) => {this.setState({ expanded }); Streamlit.setComponentValue(this.state); this.state.changed = true;}}
+      onCheck={(checked) => { this.setState({ checked }); Streamlit.setComponentValue({'checked': checked, 'expanded': this.state.expanded}); this.state.changed = true; }}
+      onExpand={(expanded) => {this.setState({ expanded }); Streamlit.setComponentValue({ 'checked': this.state.checked, 'expanded': expanded}); this.state.changed = true;}}
     />)
   }
 
