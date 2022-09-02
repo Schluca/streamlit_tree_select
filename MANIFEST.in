@@ -1,0 +1,1 @@
+recursive-include streamlit_tree_select/frontend/build *
