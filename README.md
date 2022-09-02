@@ -17,4 +17,9 @@ Using streamlit-tree-select is as simple as importing tree_select and passing a 
 ``` python
 import streamlit as st
 from streamlit_tree_select import tree_select
+```
+
+<p align="center">
+  <img src="./img/example.gif" alt="animated" />
+</p>
 
