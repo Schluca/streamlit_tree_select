@@ -82,7 +82,7 @@ def tree_select(nodes: list[dict[str, str, None | list[Any]]],
         If True, checkboxes will only be shown for leaf nodes.
 
     show_expand_all: bool, default False
-        If True buttons for expanding and collapsing all parent nodes will appear in the three.
+        If True buttons for expanding and collapsing all parent nodes will appear in the tree.
     key
 
     Returns
