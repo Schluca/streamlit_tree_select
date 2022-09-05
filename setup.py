@@ -2,13 +2,13 @@ import setuptools
 
 setuptools.setup(
     name="streamlit-tree-select",
-    version="0.0.1",
-    author="",
+    version="0.0.3",
+    author="Schluca",
     author_email="",
-    description="",
+    description="A simple and elegant checkbox tree for Streamlit.",
     long_description="",
     long_description_content_type="text/plain",
-    url="",
+    url="https://github.com/Schluca/streamlit_tree_select",
     packages=setuptools.find_packages(),
     include_package_data=True,
     classifiers=[],
