@@ -11,7 +11,8 @@ class TreeSelect extends StreamlitComponentBase {
   public state = {
     checked: [],
     expanded: [],
-    changed: false,
+    checked_changed: false,
+    expanded_changed: false,
   };
 
 
@@ -24,13 +25,18 @@ class TreeSelect extends StreamlitComponentBase {
     const disabled = this.props.args['disabled']
     const expandDisabled = this.props.args['expand_disabled']
     const expandOnClick = this.props.args['expand_on_click']
+    const expanded = this.props.args['expanded']
     const noCascade = this.props.args['no_cascade']
     const onlyLeafCheckboxes = this.props.args['only_leaf_checkboxes']
     const showExpandAll = this.props.args['show_expand_all']
 
-    if (!this.state.changed) {
+    if (!this.state.checked_changed) {
       this.state.checked = checked;
     };
+
+    if (!this.state.expanded_changed){
+      this.state.expanded = expanded;
+    }
 
     return (<CheckboxTree
       icons={{
@@ -56,8 +62,8 @@ class TreeSelect extends StreamlitComponentBase {
       showExpandAll={showExpandAll}
       checked={this.state.checked}
       expanded={this.state.expanded}
-      onCheck={(checked) => { this.setState({ checked }); Streamlit.setComponentValue({'checked': checked, 'expanded': this.state.expanded}); this.state.changed = true; }}
-      onExpand={(expanded) => {this.setState({ expanded }); Streamlit.setComponentValue({ 'checked': this.state.checked, 'expanded': expanded}); this.state.changed = true;}}
+      onCheck={(checked) => { this.setState({ checked }); Streamlit.setComponentValue({'checked': checked, 'expanded': this.state.expanded}); this.state.checked_changed = true; }}
+      onExpand={(expanded) => {this.setState({ expanded }); Streamlit.setComponentValue({ 'checked': this.state.checked, 'expanded': expanded}); this.state.expanded_changed = true;}}
     />)
   }
 

@@ -139,5 +139,5 @@ if not _RELEASE:
                       ],
                   }]
 
-    tree_return = tree_select(test_nodes, check_model='all', checked=['1', '3'])
+    tree_return = tree_select(test_nodes, check_model='all', checked=['1', '3'], expanded=['1', '2'])
     st.write(tree_return)
