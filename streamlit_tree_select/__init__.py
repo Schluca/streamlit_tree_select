@@ -6,7 +6,7 @@ import streamlit.components.v1 as components
 
 # Create a _RELEASE constant. We'll set this to False while we're developing
 # the component, and True when we're ready to package and distribute it.
-_RELEASE = True
+_RELEASE = False
 
 if not _RELEASE:
     _tree_select = components.declare_component(
@@ -108,7 +108,7 @@ def tree_select(nodes: list[dict[str, str, None | list[Any]]],
                                      only_leaf_checkboxes=only_leaf_checkboxes,
                                      show_expand_all=show_expand_all,
                                      key=key,
-                                     default=[])
+                                     default=checked)
 
     return tree_select_value
 
