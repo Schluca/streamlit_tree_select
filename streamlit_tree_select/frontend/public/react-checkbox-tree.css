@@ -182,7 +182,6 @@
   -webkit-box-align: center;
   align-items: center;
   font-family: "Source Sans Pro", sans-serif;
-  color: rgb(49, 51, 63);
 }
 
 .rct-icons-fa4 .rct-icon-expand-close::before {
@@ -196,7 +195,7 @@
 }
 
 .rct-icons-fa4 .rct-icon-uncheck::before {
-  color: rgba(49, 51, 63, 0.4);
+
   font-size: 1.25rem;
   content: "\f096";
 }
