@@ -5,7 +5,7 @@ import {
 } from "streamlit-component-lib"
 import React, { ReactNode } from "react"
 import CheckboxTree from 'react-checkbox-tree';
-
+import parse from 'html-react-parser';
 
 class TreeSelect extends StreamlitComponentBase {
   public state = {
@@ -15,7 +15,18 @@ class TreeSelect extends StreamlitComponentBase {
     expanded_changed: false,
   };
 
+  private parse_label_html(node: any) {
+    node.forEach((element: any) => {
+      if (element.label && typeof element.label === "string")
+      {
+        element.label = parse(element.label)
+      }
+      if (element.children) {
+        this.parse_label_html(element.children)
+      }
+    });
 
+  }
   public render = (): ReactNode => {
 
     const nodes = this.props.args['nodes']
@@ -37,7 +48,7 @@ class TreeSelect extends StreamlitComponentBase {
     if (!this.state.expanded_changed){
       this.state.expanded = expanded;
     }
-
+    this.parse_label_html(nodes)
     return (<CheckboxTree
       icons={{
         check: <span className="rct-icon rct-icon-check" />,
